@@ -45,11 +45,10 @@
 > 컴퓨터 그래픽스, 컴퓨터 비전(Vision), 지리 정보 시스템(GIS), 분자 모델링, 항공 트래픽 제어, 신규 가맹점 오픈 위치 선정 마케팅 등등
 
 
-##Closest pair of points 코드
->
+## Closest pair of points 코드
 
-##분할정복
->
+## 분할정복
+
 <pre><code>{
     public int closestPair(ArrayList<Point> p, int start, int end){
 
@@ -74,7 +73,7 @@
  크기가 3이하이면 다른 메소드에서 점들 사이의 거리를 구해 가장 작은 값을 반환했습니다. 여기서 주의할 점은 분할의 기준이되는 중간 값들의 거리도 비교해 주어야 한다는 것입니다.  
 중간 인덱스를 기준으로 왼쪽과 오른쪽으로 분할하다보면 중간인덱스들 사이의 거리를 계산하지 않게 됩니다. 하지만 중간값들 사이의 거리가 최소가 될 수 있기 때문에 반드시 두점 사이의 거리를 구해 왼쪽에서 반환된 값과 오른쪽에서 반환된 값을 비교해 주어야 합니다.
 
-##BRUTEFORCE
+## BRUTEFORCE
 
 <pre><code>{
 
@@ -98,7 +97,7 @@ public int bruteForce(ArrayList<Point> p, int start, int end) {
  그 이후에 배열의 시작과 끝까지 각 점들의 거리를 구해 최소값과 비교해서 마지막에 가장 작은 값을 반환해 줍니다. 
 여기서 배열의 크기는 항상 3이하이기 때문에 시각 복잡도는 항상 O(상수)가 됩니다. 따라서 bruteforce의 시간복잡도는 O(1)입니다. 
 
-##main, Point class
+## main, Point class
 
 <pre><code>
 class Point implements Comparable<Point>{
@@ -141,6 +140,6 @@ class Point implements Comparable<Point>{
 
 ​	main함수에서는 x와 y의 값을 입력받기 위해 Point class를 만들어 객체의 형태로 값을 저장할 수 있도록 하였고, 그 이후 랜덤으로 x와 y값을 입력받아 ArrayList에 각각 저장하고 x값을 기준으로 정렬하였습니다. x값으로 정렬을 하면 좌표처럼 값을 비교할 수 있게 됩니다. 그리고 앞에서 설명한 분할 정복 과정을 수행하기 위해 Closest객체를 만들어 closestPair메소드를 호출하였습니다.
 
-##결론, 느낀점
+## 결론, 느낀점
 
 ​	closest pair of points문제를 해결하면서 느낀점은 알고리즘에서 시간 복잡도의 중요성이었습니다.  사실 closest pair of points 문제는 브르투포스 알고리즘 만으로 문제를 해결할 수 있습니다. 하지만 모든 점을 한번씩 다 비교해야하기 때문에 O(n^2)의 시간 복잡도로 문제를 해결하게 됩니다. 이 방식대로 라면, n의 크기가 커질수록 알고리즘은 비효율적입니다. 하지만 합병정렬의 원리를 기반으로 분할정복하여 문제를 해결해보면, 분할하는 과정에서 logn, 합병하는 과정 n, 그리고 브루투포스 에서 0(1)의 시간 복잡도를 가져, 총 시간 복잡도는O(nlogn)+O(1)됩니다. 결론적으로 O(nlogn)의 시간복잡도를 가지기 때문에 O(n^2)보다 훨씬 효율적인 알고리즘으로 문제를 해결할 수 있습니다.
